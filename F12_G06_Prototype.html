@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <title>Unilife</title>
+    <style>
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+      }
+
+      .header {
+        padding: 60px;
+        text-align: center;
+        background: #cfe4c3 ;
+        color: black;
+      }
+
+      .header h1 {
+        font-size: 40px;
+      }
+
+      .navbar {
+        overflow: hidden;
+        background-color: #7B9E7F;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        width: 100%;
+      }
+
+      .navbar a {
+        float: left;
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 20px;
+        text-decoration: none;
+      }
+
+      .navbar a.right {
+        float: right;
+      }
+
+      .navbar a:hover {
+        background-color: #ADDFB3 ;
+        color: black;
+      }
+
+      .modal {
+        display: none; 
+        position: fixed; 
+        z-index: 1; 
+        padding-top: 100px; 
+        left: 0;
+        top: 0;
+        width: 100%; 
+        height: 100%;
+        overflow: auto; 
+        background-color: rgb(0,0,0); 
+        background-color: rgba(0,0,0,0.4); 
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+      .checked {
+        color: orange;
+      }	
+
+      .close1 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close2 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close3 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close4 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+      
+      .close5 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close6 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close7 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close8 {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .block {
+        display: block;
+        width: 95%;
+        border: none;
+        background-color: #e6e6e6;
+        color: black;
+        padding: 25px 25px;
+        margin: 25px 2.5%;
+        font-size: 13px;
+        cursor: pointer;
+        text-align: left;
+      }
+
+      .block:hover {
+        background-color: #ddd;
+        color: black;
+      }
+
+      /* Style the search box */
+      form.search input[type=text] {
+        padding: 10px;
+        font-size: 17px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+      }
+
+      form.search button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 17px;
+        border: 1px solid grey;
+        border-left: none;
+        cursor: pointer;
+      }
+
+      form.search button:hover {
+        background: #0b7dda;
+      }
+
+      form.search::after {
+        content: "";
+        clear: both;
+        display: table;
+      }
+
+      .map-responsive{
+        overflow:hidden;
+        padding-bottom:56.25%;
+        position:relative;
+        height:0;
+      }
+
+      .map-responsive iframe{
+        left:0;
+        top:0;
+        height:100%;
+        width:100%;
+        position:absolute;
+      }
+
+      page_title {
+        margin: 2.5%;
+        font-weight: bold;
+        font-size: 35px;
+      }
+
+      page_subtitle {
+        margin: 2.5%;
+        font-weight: bold;
+        font-size: 23px;
+      }
+
+      text_margin {
+        margin: 2.5%;
+      }
+
+      subheading {
+        font-weight: bold;
+        font-size: 25px;
+      }
+
+      .button {
+        background-color: #7B9E7F;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        width:46.25%;
+        height: 75px;
+        cursor: pointer;
+        border-radius: 8px;
+      }
+
+      .button1 {margin: 4px 2.5%;}
+      .button2 {}
+      .button3 {background-color: #000066; width:20%; margin: 4px 2.5%; height: 50px;padding: 15px;}
+      .button4 {background-color: #000066; width:100px; margin: 4px 2.5%; height: 40px; padding: 10px;}
+
+      .contact{
+        width: 95%;
+        margin:2.5%;
+        height: 160px;
+        background-color: #a6c4dc;
+        border-radius: 10px;
+      }
+
+      .contact_text{
+        width: 400px;
+        padding-top: 20px;
+        margin:0 auto;
+      }
+      .contact_text div{
+        height: 30px;
+        line-height: 30px;
+      }
+
+      .ask_bar{
+        margin: 20px 0;
+        height: 40px;
+        line-height: 40px;
+      }
+
+      .question{
+        width: calc(100% - 20);
+        height: 100px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        text-align: center;
+        font-size: 20px;
+      }
+
+      .search_box{
+        float: right;
+        margin-right: 20px;
+        width: 300px;
+      }
+      .search_box_center{
+        float:none;
+        margin: 0 auto;
+        width: 300px;
+      }
+      .question_input{
+        float: right;
+        width: 180px;
+        margin-right: 20px;
+        margin-top: 5px;
+        height: 30px;
+        border-radius: 10px;
+      }
+
+      .btn_search{
+        color: white;
+        background-color: #9ba0a5;
+        float: right;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        margin-top: 5px;
+      }
+
+      .btn_search:hover{
+        background-color: #3589c2;
+      }
+      .bold{
+        font-weight: 600;
+      }
+      .btn{
+        color: white;
+        border-radius: 10px;
+        background-color: #6fa2c3;
+        height: 30px;
+        line-height: 30px;
+        padding: 0 10px;
+        margin-top: 5px;
+        float: left;
+      }
+
+      .btn:hover{
+        background-color: #c8834b;
+      }
+      .fl {
+        float: left;
+      }
+
+      .fr {
+        float: right;
+      }
+
+      .bold{
+        font-weight: 600;
+      }
+
+      .mr-20{
+        margin-right: 20px;
+      }
+
+      al-r{
+        text-align: right;
+      }
+      
+      .about_box{
+          width: 95%;
+          height: 300px;
+          background-color: #a6c4dc;
+          border-radius: 10px;
+        	margin: 2.5%;
+      }
+
+      .about_text{
+          width: 100%;
+          padding-top: 15px;
+          margin: 15px;
+      }
+      .slogan_text{
+          font-size: 25px;
+          margin-left: 5px;
+          margin-top: 5px;
+
+      }
+      .sub_text{
+          font-size: 15px;
+      }
+
+      .about_text div{
+          height: 35px;
+          line-height: 30px;
+          margin-left: 25px;
+      }
+
+      .list_size{
+          font-size: 15px;
+      }
+      
+      .question_input{
+            width: 100%;
+    height: 200px;
+    margin: 40px 0;
+      }
+
+      .word_limit{
+          width: 100%;
+          text-align: right;
+      }
+      .success_box{
+    width: 370px;
+    margin: 50px auto;
+}
+
+.success_text{
+    height: 100px;
+    line-height: 100px;
+    font-size: 30px;
+}
+
+.success_img{
+    float: left;
+    margin: 25px 0 0 10px;
+}
+
+    </style>
+  
+    <script>
+    function show(shown, hidden) {
+      document.getElementById(shown).style.display='block';
+      document.getElementById(hidden).style.display='none';
+      return false;
+    }
+    </script>
+  
+</head>
+  
+  	<div class="header">
+      <img src="https://s1.ax1x.com/2022/05/27/Xe0zYn.png" alt="Xe0zYn.png" border="0" width = 50 />
+      <h1>UniLife</h1>
+      <p>Welcome to Unilife</p>
+    </div>
+  
+      <!-- Start your code here -->
+<body>
+  
+    <div id="Login">
+    <br>
+    <page_title>Login</page_title>
+    
+        <!-- Login -->
+      <br><br>
+      <form name="myForm1"
+            onSubmit="return login(username, password)">
+
+        <text_margin>Username: <input type="text" name="username"></text_margin><br><br>
+        <text_margin>Password: <input type="password" name="password"></text_margin><br><br>
+        
+        <text_margin><input type = "submit" value ="Login"></text_margin>
+      </form>
+    
+      
+      <br>
+      
+      <text_margin>Don't have an account?
+      <a href="#" onclick="return show('Register','Login');">Register</a> </text_margin>
+      <br><br>
+      
+      <text_margin>
+      <a href="#" onclick="">Forgot password?</a> </text_margin>
+      
+      <script>
+        function login(username, password)
+        {
+          var passwordStored = localStorage.getItem(username.value);
+          if (passwordStored == null)
+          {
+            alert("Username does not exist");
+            return false;
+          }
+
+          if (passwordStored != password.value)
+          {
+            alert("Wrong password");
+            return false;
+          }
+
+          username.value = "";
+          password.value = "";
+          
+          show('Menu','Login');
+          return false;
+
+        }
+      </script>
+      
+      
+      <br><br><br>
+      <text_margin><a href="#" onclick="return show('Menu','Login');">Skip for now</a></text_margin>
+    
+    </div>
+
+   			<!-- Registration -->
+  
+    <div id="Register" style="display:none">
+      <br><page_title>Registration</page_title> <br><br>
+      
+      <form name="myForm1"
+            onSubmit="return register(username, password1, password2, phonenumber)">
+
+        <text_margin>Username: <input type="text" name="username"></text_margin><br><br>
+        <text_margin>Password: <input type="password" name="password1" id = "pwd1"></text_margin><br><br>
+        <text_margin>Confirm Password: <input type="password" name="password2" id = "pwd2"> <br><br></text_margin>
+
+        <text_margin>Phone Number <input type="text" name="phonenumber" id = "phonenumber"> <br><br></text_margin>
+
+
+        <text_margin>Please choose:
+
+          <select name="role" id="roles">
+            <option value="student">Student</option>
+            <option value="staff">Staff</option>
+            <option value="visitor">Visitor</option> 
+          </select>
+
+        </text_margin>
+        <br><br>
+
+        <text_margin><input type="checkbox" id = "checkboxID" onclick="showPassword()">Show Password </text_margin><br><br>
+
+        <text_margin><input type = "submit" value ="Register"></text_margin>
+
+      </form>
+
+      <br><br>
+
+      <text_margin>Already have an account?
+      <a href="#" onclick="return show('Login','Register');">Login</a></text_margin>
+    	<script>
+        function register(username, password1, password2, phoneNumber)
+        {
+
+
+    			if (!isUsernameGood(username))
+          {
+          	return false;
+          }
+          
+          if (!isPhoneNumberGood(phoneNumber))
+          {
+            return false;
+          }
+          
+          if (isPasswordGood(password1, password2))
+          {
+
+            localStorage.setItem(username.value, password1.value);
+            show('Login','Register')
+            
+          }
+
+          username.value = "";
+          password1.value = "";
+          password2.value = "";
+          phoneNumber.value = "";
+          
+          return false;
+
+        }
+        
+        
+        function isUsernameGood(username)
+        {
+        	          
+          if (username.value.length < 3)
+          {
+            alert("username length must be at least 3 characters");
+            return false;
+
+          }
+          
+          var password = localStorage.getItem(username.value);
+          
+          if (password != null)
+          {
+            alert("username already exists");
+            return false;
+          }
+          
+          return true;
+          
+        }
+        
+        function isPasswordGood(password1, password2)
+        {
+          var passwordTxt1 = password1.value;
+          var passwordTxt2 = password2.value;
+          
+          if (passwordTxt1 != passwordTxt2)
+          {
+            alert("passwords need to be the same");
+            return false;
+          }
+
+          if (passwordTxt1.length < 3)
+          {
+            alert("password length must be at least 3 characters");
+            return false;
+          }
+
+          return true
+
+        }
+        
+        function isPhoneNumberGood(phoneNumber)
+        {
+          
+          	var phoneNumberTxt = phoneNumber.value;
+          
+						var isnum = /^\d+$/.test(phoneNumberTxt);
+          
+          	if (phoneNumberTxt.length < 8 || !isnum)
+            {
+            	alert("Please enter a valid phone number");
+              return false;
+            }
+          	return true;
+        }
+        
+        function showPassword()
+        {
+          var checkbox = document.getElementById("checkboxID");
+          var password1 = document.getElementById("pwd1");
+          var password2 = document.getElementById("pwd2");
+          
+          if (checkbox.checked)
+          {
+            password1.type = "text";
+            password2.type = "text";
+          }
+          else
+          {
+            password1.type = "password";
+            password2.type = "password";
+          }
+        }
+        
+      </script>
+      
+    </div>
+  
+ 		<div id="Menu" style="display:none">
+      <br><page_title>Menu</page_title><br><br>
+      <button class="button button1" onclick="return show('Food Ordering','Menu');">Food Ordering</button>
+      <button class="button button2" onclick="return show('Food Deliver','Menu');">Food Deliver</button><br><br>
+      <button class="button button1" onclick="return show('Discussions','Menu');">Discussions</button>
+      <button class="button button2" onclick="return show('Accommodations','Menu');">Accommodation</button><br><br>
+      <button class="button button1" onclick="return show('About Us','Menu');">About Us</button><br><br>
+  </div>
+ 
+   			<!-- Food Ordering -->
+  	
+  	<div id="Food Ordering" style="display:none">
+
+      <div class="navbar">
+        <a href="#" onclick="return show('Menu','Food Ordering');">Home</a>
+        <a href="#">Food Ordering</a>
+        <a href="#" onclick="return show('Food Deliver','Food Ordering');">Food Deliver</a>
+        <a href="#" onclick="return show('Discussions','Food Ordering');">Discussions</a>
+        <a href="#" onclick="return show('Accommodations','Food Ordering');">Accommodations</a>
+        <a href="#" onclick="return show('About Us','Food Ordering');">About us</a>
+        <a href="#" class="right" onclick="return show('Login','Food Ordering');">Sign Out</a>
+      </div>
+
+      <br><page_title>Food Ordering</page_title><br>
+
+      <button class="block" id="modalButton1">
+        <subheading>Countyard Restaurant Bar
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star"></span>
+			<span class="fa fa-star"></span>
+        </subheading><br><br>
+        Basic information about the restaurant goes here: e.g.<br><br>
+        Location: Restaurant address<br>
+        Building: Building name<br><br>
+         
+        
+       <br> Click for more infomation
+      </button>
+      
+      <button class="block" id="modalButton2">
+        <subheading>Salt and Palm
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star"></span>
+        </subheading><br><br>
+        Basic information about the restaurant goes here: e.g.<br><br>
+        Location: Restaurant address<br>
+        Building: Building name<br><br>
+        
+        Click for more infomation
+      </button>
+      
+      <button class="block" id="modalButton3">
+        <subheading>Wentworth Building
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+        </subheading><br><br>
+        Basic information about the restaurant goes here: e.g.<br><br>
+        Location: Restaurant address<br>
+        Building: Building name<br><br>
+        
+        Click for more infomation
+      </button>
+      
+      <button class="block" id="modalButton4">
+        <subheading>USU Store
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star checked"></span>
+			<span class="fa fa-star"></span>
+        </subheading><br><br>
+        Basic information about the restaurant goes here: e.g.<br><br>
+        Location: Restaurant address<br>
+        Building: Building name<br><br>
+        
+        Click for more infomation
+      </button>
+
+      <div id="restaurantModal1" class="modal">
+        <div class="modal-content">
+          <span class="close1">&times;</span> 
+          <br><subheading>Counteryard Restaurant Bar</subheading><br><br>
+          <div class="map-responsive">
+
+						<img src="https://s1.ax1x.com/2022/05/27/XeYbEq.jpg" alt="XeYbEq.jpg" border="0" />
+          </div>
+          
+          <br>
+          Detailed information about the toilet goes here: e.g.<br><br>
+          Location: Restaurant address<br>
+          Building: Building name<br>
+          Availability: 10a.m. to 8p.m. Weekdays<br>
+          Vegan Provided: Yes <br>
+          Pet Friendly
+          
+        </div>
+      </div>
+      
+      <div id="restaurantModal2" class="modal">
+        <div class="modal-content">
+          <span class="close2">&times;</span>
+          <br><subheading>Salt and Palm</subheading><br><br>
+          <div class="map-responsive">
+
+          <img src="https://s1.ax1x.com/2022/05/27/XeNeYV.jpg" alt="XeNeYV.jpg" border="0" />
+          </div>
+          
+          <br>
+          Detailed information about the toilet goes here: e.g.<br><br>
+          Location: Restaurant address<br>
+          Building: Building name<br>
+          Availability: 10a.m. to 8p.m. Weekdays<br>
+          Vegan Provided: Yes <br>
+          Pet Friendly
+           
+        </div>
+      </div>
+      
+      <div id="restaurantModal3" class="modal">
+        <div class="modal-content">
+          <span class="close3">&times;</span>
+          <br><subheading>WentWorth Building</subheading><br><br>
+          <div class="map-responsive">
+
+          	<img src="https://s1.ax1x.com/2022/05/27/XeNeYV.jpg" alt="XeNeYV.jpg" border="0" />
+
+          </div>
+          
+          <br>
+          Detailed information about the toilet goes here: e.g.<br><br>
+          Location: Restaurant address<br>
+          Building: Building name<br>
+          Availability: 10a.m. to 8p.m. Weekdays<br>
+          Vegan Provided: Yes <br>
+          Pet Friendly
+          
+        </div>
+      </div>
+      
+      <div id="restaurantModal4" class="modal">
+        <div class="modal-content">
+          <span class="close4">&times;</span>
+          <br><subheading>USU Store</subheading><br><br>
+          <div class="map-responsive">
+
+          	<img src="https://s1.ax1x.com/2022/05/27/XeNeYV.jpg" alt="XeNeYV.jpg" border="0" />
+
+          </div>
+          
+          <br>
+          Detailed information about the toilet goes here: e.g.<br><br>
+          Location: Restaurant address<br>
+          Building: Building name<br>
+          Availability: 10a.m. to 8p.m. Weekdays<br>
+          Vegan Provided: Yes <br>
+          Pet Friendly
+          
+        </div>
+      </div>
+      
+      <script>
+        var modal1 = document.getElementById("restaurantModal1");
+        var modal2 = document.getElementById("restaurantModal2");
+        var modal3 = document.getElementById("restaurantModal3");
+        var modal4 = document.getElementById("restaurantModal4");
+
+        var btn1 = document.getElementById("modalButton1");
+        var btn2 = document.getElementById("modalButton2");
+        var btn3 = document.getElementById("modalButton3");
+        var btn4 = document.getElementById("modalButton4");
+
+        var span1 = document.getElementsByClassName("close1")[0];
+        var span2 = document.getElementsByClassName("close2")[0];
+        var span3 = document.getElementsByClassName("close3")[0];
+        var span4 = document.getElementsByClassName("close4")[0];
+
+        btn1.onclick = function() {
+          modal1.style.display = "block";
+        }
+        
+        btn2.onclick = function() {
+          modal2.style.display = "block";
+        }
+        
+        btn3.onclick = function() {
+          modal3.style.display = "block";
+        }
+        
+        btn4.onclick = function() {
+          modal4.style.display = "block";
+        }
+        
+        span1.onclick = function() {
+          modal1.style.display = "none";
+        }
+        
+        span2.onclick = function() {
+          modal2.style.display = "none";
+        }
+        
+        span3.onclick = function() {
+          modal3.style.display = "none";
+        }
+        
+        span4.onclick = function() {
+          modal4.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+          if (event.target == modal1) {
+            modal1.style.display = "none";
+          } else if (event.target == modal2) {
+            modal2.style.display = "none";
+          } else if (event.target == modal3) {
+            modal3.style.display = "none";
+          } else if (event.target == modal4) {
+            modal4.style.display = "none";
+          }
+        }
+      </script>
+    <br><br>
+		</div>
+
+   			<!-- Food Deliver -->
+  
+  	<div id="Food Deliver" style="display:none">
+      <div class="navbar">
+        <a href="#" onclick="return show('Menu','Food Deliver');">Home</a>
+        <a href="#" onclick="return show('Food Ordering','Food Deliver');">Food Ordering</a>
+        <a href="#">Food Deliver</a>
+        <a href="#" onclick="return show('Discussions','Food Deliver');">Discussions</a>
+        <a href="#" onclick="return show('Accommodations','Food Deliver');">Accommodations</a>
+				<a href="#" onclick="return show('About Us','Food Deliver');">About us</a>
+        <a href="#" class="right" onclick="return show('Login','Food Deliver');">Sign Out</a>
+      </div>
+      
+      <br><page_title>Food Deliver</page_title>
+      
+      <br>
+      <div class="search_box">
+                    <a href="javascript:;"><div class="btn_search">Search</div></a>
+                    <input style="float: right;
+    width: 180px;
+    margin-right: 20px;
+    margin-top: 5px;
+    height: 30px;
+    border-radius: 10px;" type="text" />
+                </div><br><br><br>
+       
+      <div class="map-responsive">
+
+			<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.0418976145725!2d151.1851607151985!3d-33.888574780650806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b1d4ab9ef1d9%3A0x1d017d69037a07c0!2sThe%20University%20of%20Sydney!5e0!3m2!1sen!2s!4v1622186483888!5m2!1sen!2s" width="95%" height="450" margin="2.5%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+</div>
+        <br><br>
+    </div>
+  
+   			<!-- Discussions -->
+  
+  	<div id="Discussions" style="display:none">
+      <div class="navbar">
+        <a href="#" onclick="return show('Menu','Discussions');">Home</a>
+        <a href="#" onclick="return show('Food Ordering','Discussions');">Food Ordering</a>
+        <a href="#" onclick="return show('Food Deliver','Discussions');">Food Deliver</a>
+        <a href="#">Discussions</a>
+        <a href="#" onclick="return show('Accommodations','Discussions');">Accommodations</a>
+        <a href="#" onclick="return show('About Us','Discussions');">About us</a>
+        <a href="#" class="right" onclick="return show('Login','Discussions');">Sign Out</a>
+      </div>
+      <br><page_title>Discussion Forum</page_title><br>
+      
+      <div class="content">
+        <a href="#" onclick="return show('Question','Discussions');"><div class="btn fr">Ask questions</div></a>
+        
+        <br><br>
+            <div class="ask_bar">
+                <div class="search_box">
+                    <a href="javascript:;"><div class="btn_search">Search</div></a>
+                    <input style="float: right;
+    width: 180px;
+    margin-right: 20px;
+    margin-top: 5px;
+    height: 30px;
+    border-radius: 10px;" type="text" />
+                </div>
+            </div>
+ 
+        
+        <div class="fl bold">&emsp;&emsp;Trending now</div>
+        
+        <br>
+        
+            <div class="question" style="font-size: 16px; width: 92.5%; margin:2.5%;">
+                Post: ******************?
+                <p>Top comments: ***************** </p>
+              	<p>Top comments: ***************** </p>
+            </div>
+            <div><p></p></div>
+            <div class="question" style="font-size: 16px; width: 92.5%; margin:2.5%;">
+                Post: ******************?
+                <p>Top comments: ***************** </p>
+              	<p>Top comments: ***************** </p>
+            </div>
+            <div><p></p></div>
+            <div class="question" style="font-size: 16px; width: 92.5%; margin:2.5%;">
+                Post: ******************?
+                <p>Top comments: ***************** </p>
+              	<p>Top comments: ***************** </p>
+            </div>
+        		<div><p></p></div>
+            <div class="question" style="font-size: 16px; width: 92.5%; margin:2.5%;">
+                Post: ******************?
+                <p>Top comments: ***************** </p>
+              	<p>Top comments: ***************** </p>
+            </div>
+            <div><p></p></div>
+            <div class="question" style="font-size: 16px; width: 92.5%; margin:2.5%;">
+                Post: ******************?
+                <p>Top comments: ***************** </p>
+              	<p>Top comments: ***************** </p>
+            </div>
+        </div>
+      
+      <br><br>
+      
+    </div>
+  
+   	
+  
+   			<!-- Accommodations -->
+  	
+    <div id="Accommodations" style="display:none">
+
+      <div class="navbar">
+        <a href="#" onclick="return show('Menu','Accommodations');">Home</a>
+        <a href="#" onclick="return show('Food Ordering','Accommodations');">Food Ordering</a>
+        <a href="#" onclick="return show('Food Deliver','Accommodations');">Food Deliver</a>
+        <a href="#" onclick="return show('Discussions','Accommodations');">Discussions</a>
+        <a href="#">Accommodations</a>
+        <a href="#" onclick="return show('About Us','Accommodations');">About us</a>
+        <a href="#" class="right" onclick="return show('Login','Accommodations');">Sign Out</a>
+      </div>
+
+      <br><page_title>Accommodations</page_title><br>
+      
+      <div class="ask_bar">
+                <div class="search_box">
+                    <a href="javascript:;"><div class="btn_search">Search</div></a>
+                    <input style="float: right;
+    width: 180px;
+    margin-right: 20px;
+    margin-top: 5px;
+    height: 30px;
+    border-radius: 10px;" type="text" />
+                </div>
+        <br>
+        
+        <div class="fl bold">&emsp;&emsp;Recommendations</div>
+        
+        <br>
+            </div>
+
+      <button class="block" id="modalButtonA1">
+        <subheading>511/8 Banks Rd Newtown
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+          <span class="fa fa-star"></span>
+        </subheading><br><br>
+        Bed: 1, Toilet: 1<br><br>
+        Basic information about the accommodation goes here: e.g.<br><br>
+        Location: Accommodation address<br>
+        Price: $$$<br><br>
+
+
+        Click for more infomation
+      </button>
+
+      <button class="block" id="modalButtonA2">
+        <subheading>Available now $560 pw Redfern
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+        </subheading><br><br>
+        Bed: 2, Toilet: 1, Car park: 1<br><br>
+        Basic information about the accommodation goes here: e.g.<br><br>
+        Location: Accommodation address<br>
+        Price: $$$<br><br>
+
+        Click for more infomation
+      </button>
+
+      <button class="block" id="modalButtonA3">
+        <subheading>Bondi Junction Exclusive
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+        </subheading><br><br>
+        Bed: 3, Toilet: 2, Car park: 2<br><br>
+        Basic information about the accommodation goes here: e.g.<br><br>
+        Location: Accommodation address<br>
+        Price: $$$<br><br>
+
+        Click for more infomation
+      </button>
+
+      <button class="block" id="modalButtonA4">
+        <subheading>1 week free rent Redfern
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star"></span>
+        </subheading><br><br>
+        Bed: 2, Toilet: 1<br><br>
+        Basic information about the accommodation goes here: e.g.<br><br>
+        Location: Accommodation address<br>
+        Price: $$$<br><br>
+
+        Click for more infomation
+      </button>
+
+      <div id="AccomModal1" class="modal">
+        <div class="modal-content">
+          <span class="close5">&times;</span> 
+          <br><subheading>511/8 Banks Rd Newtown</subheading><br><br>
+          <div class="map-responsive">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.0418976145725!2d151.1851607151985!3d-33.888574780650806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b1d4ab9ef1d9%3A0x1d017d69037a07c0!2sThe%20University%20of%20Sydney!5e0!3m2!1sen!2s!4v1622186483888!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+
+          <br>
+          Price: $$$ <br><br>
+          Detailed information about the Accommodation goes here: e.g.<br><br>
+          Location: Accommodation address<br>
+          Availability: Date when available or available now<br>
+
+        </div>
+      </div>
+
+      <div id="AccomModal2" class="modal">
+        <div class="modal-content">
+          <span class="close6">&times;</span>
+          <br><subheading>Available now $560 pw Redfern</subheading><br><br>
+          <div class="map-responsive">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.0418976145725!2d151.1851607151985!3d-33.888574780650806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b1d4ab9ef1d9%3A0x1d017d69037a07c0!2sThe%20University%20of%20Sydney!5e0!3m2!1sen!2s!4v1622186483888!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+
+          <br>
+          Price: $$$ <br><br>
+          Detailed information about the Accommodation goes here: e.g.<br><br>
+          Location: Accommodation address<br>
+          Availability: Date when available or available now<br>
+
+        </div>
+      </div>
+
+      <div id="AccomModal3" class="modal">
+        <div class="modal-content">
+          <span class="close7">&times;</span>
+          <br><subheading>Bondi Junction Exclusive</subheading><br><br>
+          <div class="map-responsive">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.0418976145725!2d151.1851607151985!3d-33.888574780650806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b1d4ab9ef1d9%3A0x1d017d69037a07c0!2sThe%20University%20of%20Sydney!5e0!3m2!1sen!2s!4v1622186483888!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+        </div>
+
+          <br>
+          Price: $$$ <br><br>
+          Detailed information about the Accommodation goes here: e.g.<br><br>
+          Location: Accommodation address<br>
+          Availability: Date when available or available now<br>
+
+        </div>
+      </div>
+
+      <div id="AccomModal4" class="modal">
+        <div class="modal-content">
+          <span class="close8">&times;</span>
+          <br><subheading>1 week free rent Redfern</subheading><br><br>
+          <div class="map-responsive">
+
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3312.0418976145725!2d151.1851607151985!3d-33.888574780650806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b12b1d4ab9ef1d9%3A0x1d017d69037a07c0!2sThe%20University%20of%20Sydney!5e0!3m2!1sen!2s!4v1622186483888!5m2!1sen!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
+       </div>
+
+          <br>
+          Price: $$$ <br><br>
+          Detailed information about the Accommodation goes here: e.g.<br><br>
+          Location: Accommodation address<br>
+          Availability: Date when available or available now<br>
+
+        </div>
+      </div>
+
+      <script>
+        var modalA1 = document.getElementById("AccomModal1");
+        var modalA2 = document.getElementById("AccomModal2");
+        var modalA3 = document.getElementById("AccomModal3");
+        var modalA4 = document.getElementById("AccomModal4");
+
+        var btnA1 = document.getElementById("modalButtonA1");
+        var btnA2 = document.getElementById("modalButtonA2");
+        var btnA3 = document.getElementById("modalButtonA3");
+        var btnA4 = document.getElementById("modalButtonA4");
+
+        var spanA1 = document.getElementsByClassName("close5")[0];
+        var spanA2 = document.getElementsByClassName("close6")[0];
+        var spanA3 = document.getElementsByClassName("close7")[0];
+        var spanA4 = document.getElementsByClassName("close8")[0];
+
+        btnA1.onclick = function() {
+          modalA1.style.display = "block";
+        }
+
+        btnA2.onclick = function() {
+          modalA2.style.display = "block";
+        }
+
+        btnA3.onclick = function() {
+          modalA3.style.display = "block";
+        }
+
+        btnA4.onclick = function() {
+          modalA4.style.display = "block";
+        }
+
+        spanA1.onclick = function() {
+          modalA1.style.display = "none";
+        }
+
+        spanA2.onclick = function() {
+          modalA2.style.display = "none";
+        }
+
+        spanA3.onclick = function() {
+          modalA3.style.display = "none";
+        }
+
+        spanA4.onclick = function() {
+          modalA4.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+          if (event.target == modalA1) {
+            modalA1.style.display = "none";
+          } else if (event.target == modalA2) {
+            modalA2.style.display = "none";
+          } else if (event.target == modalA3) {
+            modalA3.style.display = "none";
+          } else if (event.target == modalA4) {
+            modalA4.style.display = "none";
+          }
+        }
+      </script>  
+      <br><br>
+  </div>
+  
+  
+  	<div id="About Us" style="display:none">
+
+      <div class="navbar">
+        <a href="#" onclick="return show('Menu','About Us');">Home</a>
+        <a href="#" onclick="return show('Food Ordering','About Us');">Food Ordering</a>
+        <a href="#" onclick="return show('Food Deliver','About Us');">Food Deliver</a>
+        <a href="#" onclick="return show('Discussions','About Us');">Discussions</a>
+        <a href="#" onclick="return show('Accommodations','About Us');">Accommodations</a>
+        <a href="#">About Us</a>
+        <a href="#" class="right" onclick="return show('Login','About Us');">Sign Out</a>
+      </div>
+
+      <br><page_title>About Us</page_title><br>
+      
+      <div class="content">
+            <div class="about_box">
+                <div class="about_text">
+                    <div class="bold slogan_text">Unilife Cares <p> A Better Campus Time</p></div>
+                    <div></div>
+                    <div></div>
+                    <div class="bold sub_text">No Time for food? Awful landlord? </div>
+                    <div class="list_size" >Don't Panic. Unilife will provide you:
+                        <li>The cheapest and quickest food ordering and delivery</li>
+                        <li>Student Accomodation Service</li>
+                        <li>UniForm meet your new friends</li>
+
+                    </div>
+                    
+                </div>
+            </div>
+          
+        </div>
+      
+      <div class="content">
+            <div style="height: 350px;">
+                <div class="about_text">
+                    <div class="bold slogan_text">MEET OUR BEST TEAM MEMBERS</div>
+                   
+                  <div></div>
+                    <div class="list_size" >
+                      <text_margin>CEO: Yun-Jung Hwang 500474170 YHWA0327
+                     </text_margin><br><br>  
+                      <text_margin>CTO: Yizhen Song 500053089 YSON3454</text_margin>
+                    </div>
+                    
+                </div>
+            </div>
+          
+        </div>
+     </div>
+  
+  	
+  <div id="Question" style="display:none"> 
+    <div class="navbar">
+      <a href="#" onclick="return show('Menu','Question');">Home</a>
+      <a href="#" onclick="return show('Food Ordering','Question');">Food Ordering</a>
+      <a href="#" onclick="return show('Food Deliver','Question');">Food Deliver</a>
+      <a href="#" onclick="return show('Discussions','Question');">Discussions</a>
+      <a href="#" onclick="return show('About Us','Question');">About us</a>
+      <a href="#" class="right" onclick="return show('Login','Question');">Sign Out</a>
+    </div>
+    
+    <br>
+    <page_title>Question Form</page_title><br><br>
+    
+    <div class="content">
+            <div>
+                <textarea class="question_input" name="" id="" cols="30" rows="10"></textarea>
+            </div>
+            <div class="word_limit">Word limit: 400</div>
+            
+        </div>
+    
+    <br><button class="button button4" onclick="return show('Submitted','Question');">Submit</button>
+    <br><button class="button button4" onclick="return show('Discussions','Question');">Cancel</button>
+    
+  </div>
+  
+  <div id="Submitted" style="display:none"> 
+    <div class="navbar">
+      <a href="#" onclick="return show('Menu','Submitted');">Home</a>
+      <a href="#" onclick="return show('Food Ordering','Submitted');">Food Ordering</a>
+      <a href="#" onclick="return show('Food Deliver','Submitted');">Food Deliver</a>
+      <a href="#" onclick="return show('Discussions','Submitted');">Discussions</a>
+      <a href="#" onclick="return show('About Us','Submitted');">About us</a>
+      <a href="#" class="right" onclick="return show('Login','Submitted');">Sign Out</a>
+    </div>
+    
+    <div class="content">
+        <div class="success_box">
+            <div class="success_text">
+                <div class="fl bold">Submit Successfully</div>
+            </div>
+
+        </div>
+    </div>
+    
+    <br><button class="button button4" onclick="return show('Discussions','Submitted');">Back</button>
+  </div>
+
+	</body>
+
+  </html>
+
+</html>
